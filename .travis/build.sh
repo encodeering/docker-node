@@ -18,3 +18,5 @@ docker build -t "$TAG:$TAGSPECIFIER"             \
              --build-arg NODE_VERSION="$VERSION" \
              --build-arg NODE_ARCH="$NODE_ARCH"  \
              "$PROJECT/$SEMANTIC"
+
+docker run --rm "$TAG:$TAGSPECIFIER" node --version
