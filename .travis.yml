@@ -4,3 +4,29 @@ sudo: required
 
 services:
 - docker
+
+env:
+  global:
+    - secure: "FDlghcAlahn8XHYtYENMH64l2GRDPDWFagvgXhu4QvSkupDLvnrKktEtxnq1HJUcZhi/egtEs3ah9fy5XyoojKWrv2lnlosExC4r7IpiDAVEo9EoXxCIBwyIB6txhSHkR1A6GWmYajHAsiqczZXQh8NPc+Ghf7Y8eKN8l9p4V2Oqnzwxw1Lua17Z0G5WK0Pj5NT8MGiyLNtIRdGsG9I/I9VdkI8hHqLDBkGB6u3b4yTcT5JBZTXRg0NAz5+kjLWa5RubHTG9gW+Sh5uwdeGGLke6pFY56JuWZEfpELc1leRvZkSj3RevJAccP9bLCjek58l9dd0EVC5NdPwmQDeYYA+DJaYus3riy8NfDYVo67DDMp/MZ49DHSlRIPscoGHmLFooA2m7RrLOymrArn3p387TbaZhoGlbKzECOao2rUl1ahP8weTEB9afV0pNcwJaps4VxlTtQ3XDFRf+Zs9ilkb0doLrCa554/Xp+4GHE5v5adzSIQBjvybjQw0y4OLtvdzP1yTdq9DSQJ54gJayO0C64es1yVwFikEHtMqd3XL4R0L7gyGpSBD/qy7TWLagfRF7+oAxNJzLxxgtKbdnyJzQ3t5aDnYSZY4npfOg+119WldpkyW6j7/51+/A5bbdtZLKN27dkRAhKm3B/cGxksKbdcZo1epQefdPyqbczss="
+    - secure: "aJvXwF/lXce3esveEl2CBrf1ASLINGab6wcNadkCI60QHPvWnKhKnjdAP1w/9kDa4d97IkRwxmovDjo+kQJSsLh++gc9jgWRnZ5rNZ4we6uyCMIOpqW2MRv0Wky865uPWdVNFvAemlh1NTEDwzeyvcjziZWUeG4emEPP5ZqR+5ovmnFXDLz099GTfJ9xM96va1fSgB+R3C4+bCl4dXvXXQ7+ww25nICP5oupxreqCtoMGVvebR7yf5jSSiraFuRt4Dz0C4bpfvxb46ic+nNLXX5M71arlbXVGA6RTS8TBWYwWo0sLG9jr1Mlqo7beQrBtoy5tQJXLPcaqqgces3GULwppsucMfronex71V/LjKJj8YAj9SkvtSS9ets118hy00KQ3RFuV1JTLjdQoa31zrSdMBK8xmmQEK8ACA7HGzO5Ow/9VO7Z8hs31f9CrMC6AX7DUBALDHiPsO6JUdrnb6oDDQEqPu9vOYM8Jb03l9dNzyOKEh6Lr4CjmmKrjl8zMfR+X+YK51LhY4u2q3xQEyh2hVf/pnVr1nZ1g4RFDtUu3bFHtKaG2OMf9GO2/E/5ONXtOpAMB0CMYKudSAeTvOQs2kMCHVv6r4sinTWSgQPJgqRbK13WxQoHbyy/OlPvXkrCCyYFRiKTf+pEwJizROE948VDxU2T6r4E88DhaqA="
+    - secure: "m+oB2qTbgY1N4NsfZJtzvSn2L5FH4CA4Mx8L/qX0wCY/mWCe9+5FaRrsq45GpcMjElLstFZzxQD3m6GrC6XtnQAnMNv+oYJkp+Dpxf/zWsPHypx0HgQwsQEwoKzBGMNjvSOs4+DsJwffQiRuGBCt3rBeTaDrQ4NfvI77tShDbZApIFyt3rUxVzc3J6bgWVgN7BvlabvoHQ076L3eBRk7wIOWmOE80OUmUvg3boLhQn57gto8qUrm8obG6TE2lhaOEqHZugstJ7CGJVasfDc/4t6aChYWljzCixGyUQPQ2Fm+BrXHe8h6ev9Re4AsdBgKVLc5zPUZH378iMGw652F/gXy1qSZsxWGYLW6g61+9v4MR1I5u/VA9yPEu/IB6clliV2mKz1x4d3vkkFxfARa46FYvAm8+Titdt+rcOHaw8iFoTKSgIUV60dEUuAO5qE46ROSQJWrmqLmIL8eUb36VVqtZceNlHoyF5r8+Snv/l/FhclvGkL92j+8pDIAAJWojvDofzBCR046TSXajuh+vVT3VvoTTy6KZMjCNFzgPwxpFBDhXRxVPDmtuLNmdPND+WD52Mhx75i/6bGm+ijHHelOJxBLIncyaQEeum8VIXc4/Db6PYB/XS4CgRrClYUkx8Q0F0SAV1SsYSePEk94TkpMMhjJ54TSRrHgt5YZmHE="
+    - PROJECT="node"
+    - REPOSITORY="encodeering"
+  matrix:
+    - ARCH=amd64 VERSION=4.2.4
+    - ARCH=amd64 VERSION=5.4.1
+    - ARCH=armhf VERSION=4.2.4
+    - ARCH=armhf VERSION=5.4.1
+
+before_script:
+- sudo -E sh .travis/prepare.sh
+- git clone --depth 1 https://github.com/nodejs/docker-node.git "$PROJECT"
+
+script:
+- sudo -E sh .travis/build.sh
+
+after_success:
+- sudo -E sh .travis/deploy.sh
+
+after_script:
+- docker images
