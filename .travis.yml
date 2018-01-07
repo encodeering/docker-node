@@ -13,12 +13,12 @@ env:
     - PROJECT="node"
     - REPOSITORY="encodeering"
     - BRANCH="$TRAVIS_BRANCH"
-    - COMMIT="aea73d5555af86135ea36af90b3013ee7d11d9be"
+    - COMMIT="87d34afc375003afadefd6b34227f77bf561046d"
   matrix:
-    - BASE=debian ARCH=amd64 VERSION=4.4  PIN=4.4.3
-    - BASE=debian ARCH=amd64 VERSION=5.11 PIN=5.11.0
-    - BASE=debian ARCH=armhf VERSION=4.4  PIN=4.4.3
-    - BASE=debian ARCH=armhf VERSION=5.11 PIN=5.11.0
+    - BASE=debian ARCH=amd64 VERSION=4.8
+    - BASE=debian ARCH=armhf VERSION=4.8
+    - BASE=debian ARCH=amd64 VERSION=9.3
+    - BASE=debian ARCH=armhf VERSION=9.3
 
 install:
 - bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.5
