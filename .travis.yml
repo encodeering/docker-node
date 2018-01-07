@@ -21,7 +21,7 @@ env:
     - ARCH=armhf VERSION=5.11.0
 
 install:
-- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.3
+- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.5
 
 before_script:
 - sudo -E bash ./module.sh "." "./setup.sh" "https://github.com/nodejs/docker-node.git" "modules/$PROJECT" "$COMMIT"
