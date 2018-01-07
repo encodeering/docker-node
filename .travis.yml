@@ -15,10 +15,10 @@ env:
     - BRANCH="$TRAVIS_BRANCH"
     - COMMIT="aea73d5555af86135ea36af90b3013ee7d11d9be"
   matrix:
-    - ARCH=amd64 VERSION=4.4  PIN=4.4.3
-    - ARCH=amd64 VERSION=5.11 PIN=5.11.0
-    - ARCH=armhf VERSION=4.4  PIN=4.4.3
-    - ARCH=armhf VERSION=5.11 PIN=5.11.0
+    - BASE=debian ARCH=amd64 VERSION=4.4  PIN=4.4.3
+    - BASE=debian ARCH=amd64 VERSION=5.11 PIN=5.11.0
+    - BASE=debian ARCH=armhf VERSION=4.4  PIN=4.4.3
+    - BASE=debian ARCH=armhf VERSION=5.11 PIN=5.11.0
 
 install:
 - bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.5
