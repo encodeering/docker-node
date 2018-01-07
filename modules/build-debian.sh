@@ -10,6 +10,6 @@ set -e
 import com.encodeering.docker.config
 import com.encodeering.docker.docker
 
-./build-${BASE}.sh
+docker-pull "$REPOSITORY/buildpack-$ARCH:stretch" "buildpack-deps:stretch"
 
-docker run --rm "${DOCKER_IMAGE}" node --version
+docker build -t "${DOCKER_IMAGE}" "$PROJECT/${VERSION%.*}/stretch"
