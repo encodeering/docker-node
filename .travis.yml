@@ -13,17 +13,16 @@ env:
     - PROJECT="node"
     - REPOSITORY="encodeering"
     - BRANCH="$TRAVIS_BRANCH"
-    - COMMIT="87d34afc375003afadefd6b34227f77bf561046d"
   matrix:
     - BASE=debian ARCH=amd64 VERSION=4.8
     - BASE=debian ARCH=amd64 VERSION=9.3
     - BASE=alpine ARCH=amd64 VERSION=9.3
 
 install:
-- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.5
+- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.6
 
 before_script:
-- sudo -E bash ./module.sh "." "./setup.sh" "https://github.com/nodejs/docker-node.git" "modules/$PROJECT" "$COMMIT"
+- sudo -E bash ./module.sh "." "./setup.sh"
 
 script:
 - sudo -E bash ./module.sh "modules" "./build.sh"
