@@ -12,14 +12,13 @@ env:
     - secure: "m+oB2qTbgY1N4NsfZJtzvSn2L5FH4CA4Mx8L/qX0wCY/mWCe9+5FaRrsq45GpcMjElLstFZzxQD3m6GrC6XtnQAnMNv+oYJkp+Dpxf/zWsPHypx0HgQwsQEwoKzBGMNjvSOs4+DsJwffQiRuGBCt3rBeTaDrQ4NfvI77tShDbZApIFyt3rUxVzc3J6bgWVgN7BvlabvoHQ076L3eBRk7wIOWmOE80OUmUvg3boLhQn57gto8qUrm8obG6TE2lhaOEqHZugstJ7CGJVasfDc/4t6aChYWljzCixGyUQPQ2Fm+BrXHe8h6ev9Re4AsdBgKVLc5zPUZH378iMGw652F/gXy1qSZsxWGYLW6g61+9v4MR1I5u/VA9yPEu/IB6clliV2mKz1x4d3vkkFxfARa46FYvAm8+Titdt+rcOHaw8iFoTKSgIUV60dEUuAO5qE46ROSQJWrmqLmIL8eUb36VVqtZceNlHoyF5r8+Snv/l/FhclvGkL92j+8pDIAAJWojvDofzBCR046TSXajuh+vVT3VvoTTy6KZMjCNFzgPwxpFBDhXRxVPDmtuLNmdPND+WD52Mhx75i/6bGm+ijHHelOJxBLIncyaQEeum8VIXc4/Db6PYB/XS4CgRrClYUkx8Q0F0SAV1SsYSePEk94TkpMMhjJ54TSRrHgt5YZmHE="
     - PROJECT="node"
     - REPOSITORY="encodeering"
-    - BRANCH="$TRAVIS_BRANCH"
   matrix:
     - BASE=debian ARCH=amd64 VERSION=4.8
     - BASE=debian ARCH=amd64 VERSION=9.3
     - BASE=alpine ARCH=amd64 VERSION=9.3
 
 install:
-- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.7
+- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.8
 
 before_script:
 - sudo -E bash ./module.sh "." "./setup.sh"
