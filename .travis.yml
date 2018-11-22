@@ -13,9 +13,8 @@ env:
     - PROJECT="node"
     - REPOSITORY="encodeering"
   matrix:
-    - BASE=debian ARCH=amd64 VERSION=4.8
-    - BASE=debian ARCH=amd64 VERSION=8.11
-    - BASE=alpine ARCH=amd64 VERSION=8.11
+    - BASE=debian ARCH=amd64 VERSION=8.13
+    - BASE=alpine ARCH=amd64 VERSION=8.13
 
 install:
 - bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.8
