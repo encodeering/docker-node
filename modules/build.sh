@@ -7,4 +7,4 @@ import com.encodeering.ci.docker
 
 ./build-${BASE}.sh
 
-docker-verify node --version
+docker-verify node --version 2>&1 | dup | contains "v${VERSION}"
