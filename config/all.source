@@ -1,3 +1,3 @@
 SCM_SOURCE=https://github.com/nodejs/docker-node.git
 SCM_TARGET=modules/$PROJECT
-SCM_COMMIT=4d82413e5678c529bb665657e2e8c83e613f44d0
+SCM_COMMIT=08ec83dc9705d6ff39c6ec86c8cc6a37e63c3030
