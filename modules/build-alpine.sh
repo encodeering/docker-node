@@ -5,6 +5,6 @@ set -e
 import com.encodeering.ci.config
 import com.encodeering.ci.docker
 
-docker-pull "$REPOSITORY/alpine-$ARCH:3.9" "alpine:3.9"
+docker-pull "$REPOSITORY/alpine-$ARCH:3.11" "alpine:3.11"
 
-docker-build "$PROJECT/${VERSION%.*}/alpine"
+docker-build "$PROJECT/${VERSION%.*}/alpine3.11"
